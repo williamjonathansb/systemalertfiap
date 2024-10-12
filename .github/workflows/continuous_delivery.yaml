@@ -26,7 +26,7 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           push: true
-          tags: index.docker.io/${{ secrets.DOCKERHUB_USERNAME }}/simple-api-java:${{ github.sha }}
+          tags: index.docker.io/${{ secrets.DOCKERHUB_USERNAME }}/system-alert-fiap:${{ github.sha }}
           file: ./Dockerfile
 
   deploy:
@@ -41,7 +41,7 @@ jobs:
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
         with:
-          app-name: "fiap-simple-api-dev"
+          app-name: "system-alert-fiap"
           slot-name: "production"
           publish-profile: ${{ secrets.AZURE_PROFILE }}
-          images: "index.docker.io/${{ secrets.DOCKERHUB_USERNAME }}/simple-api-java:${{ github.sha }}"
+          images: "index.docker.io/${{ secrets.DOCKERHUB_USERNAME }}/system-alert-fiap:${{ github.sha }}"
