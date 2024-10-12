@@ -42,6 +42,5 @@ jobs:
         uses: azure/webapps-deploy@v2
         with:
           app-name: "system-alert-fiap"
-          slot-name: "production"
           publish-profile: ${{ secrets.AZURE_PROFILE }}
           images: "index.docker.io/${{ secrets.DOCKERHUB_USERNAME }}/system-alert-fiap:${{ github.sha }}"
